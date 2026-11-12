@@ -3,15 +3,15 @@ from tkinter import messagebox
 import os
 import json
 
-file_name = "contacts.json"
+FILE_NAME = "contacts.json"
 # contacts = []
 
 
 # load existing contacts if the file exist
 def load_contacts():
-    if os.path.exists(file_name):
+    if os.path.exists(FILE_NAME):
         try:
-            with open(file_name, "r") as file:
+            with open(FILE_NAME, "r") as file:
                 return json.load(file)
         except json.JSONDecodeError:
             return []
@@ -20,7 +20,7 @@ def load_contacts():
 
 # Save the list of dictionaries to a JSON file
 def save_to_file(contacts):
-    with open(file_name, "w") as file:
+    with open(FILE_NAME, "w") as file:
         json.dump(contacts, file, indent=4)
 
 
